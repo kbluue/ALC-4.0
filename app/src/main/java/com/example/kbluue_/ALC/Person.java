@@ -8,14 +8,15 @@ import static com.example.kbluue_.ALC.R.*;
 
 /**
  * Created by _kbluue_ on 7/11/2019.
+ *
  */
 
-public class Person {
+class Person {
 
-    private String name, track, country, email, phoneNumber, slackUsername;
-    private int imgPath;
+    private final String name, track, country, email, phoneNumber, slackUsername;
+    private final int imgPath;
 
-    public Person(String name, String track, String country, String email, String phoneNumber, String slackUsername, int imgPath) {
+    Person(String name, String track, String country, String email, String phoneNumber, String slackUsername, int imgPath) {
         this.name = name;
         this.track = track;
         this.country = country;
@@ -25,45 +26,13 @@ public class Person {
         this.imgPath = imgPath;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getTrack() {
-        return "Track: " + track;
-    }
-
-    public String getCountry() {
-        return "Country: " + country;
-    }
-
-    public String getEmail() {
-        return "Email: " + email;
-    }
-
-    public String getPhoneNumber() {
-        return "Phone Number: " + phoneNumber;
-    }
-
-    public String getSlackUsername() {
-        return "Slack Username: @" + slackUsername;
-    }
-
-    public int getImgPath() {
-        return imgPath;
-    }
-
-    public void setImgPath(int imgPath) {
-        this.imgPath = imgPath;
-    }
-
-    public void meld(Activity host){
-        ((TextView)host.findViewById(id.name)).setText(getName());
-        ((TextView)host.findViewById(id.track)).setText(getTrack());
-        ((TextView)host.findViewById(id.country)).setText(getCountry());
-        ((TextView)host.findViewById(id.email)).setText(getEmail());
-        ((TextView)host.findViewById(id.phone_number)).setText(getPhoneNumber());
-        ((TextView)host.findViewById(id.slack_username)).setText(getSlackUsername());
-        if (imgPath != -1) ((ImageView)host.findViewById(id.picture)).setImageResource(getImgPath());
+    void meld(Activity host){
+        ((TextView)host.findViewById(id.name)).setText(name);
+        ((TextView)host.findViewById(id.track)).setText(track);
+        ((TextView)host.findViewById(id.country)).setText(country);
+        ((TextView)host.findViewById(id.email)).setText(email);
+        ((TextView)host.findViewById(id.phone_number)).setText(phoneNumber);
+        ((TextView)host.findViewById(id.slack_username)).setText(slackUsername);
+        if (imgPath <= 0) ((ImageView)host.findViewById(id.picture)).setImageResource(imgPath);
     }
 }
